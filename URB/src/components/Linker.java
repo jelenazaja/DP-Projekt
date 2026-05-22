@@ -33,7 +33,8 @@ public class Linker {
     }
     public Msg receiveMsg(int fromId) throws IOException  {
         String getline = dataIn[fromId].readLine();
-        Util.println(" received message " + getline);
+        if (getline == null) return null;
+        //Util.println(" received message " + getline);
         StringTokenizer st = new StringTokenizer(getline);
         int srcId = Integer.parseInt(st.nextToken());
         int destId = Integer.parseInt(st.nextToken());
